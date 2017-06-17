@@ -57,7 +57,7 @@ public class UtenteService {
 	public Utente login(String username, String password){
 		Map<String,Utente> utenti = getUtenti();
 		Utente utente = utenti.get(username);
-		if (utente != null && utente.getPassword() == password){
+		if (utente != null && utente.getPassword().compareTo(password)==0){
 			return utente;
 		}
 		else

@@ -24,9 +24,9 @@ public class ControllerUtente extends HttpServlet {
 		Utente utente = new Utente();
 		UtenteService utenteService = new UtenteService();
 		String nextPage = "/index.jsp";
-		if (request.getAttribute("comand") != null){
-			String username = (String) request.getAttribute("username");
-			String password = (String) request.getAttribute("password");
+		if (request.getParameter("comand") != null){
+			String username = request.getParameter("username");
+			String password = request.getParameter("password");
 			utente = utenteService.login(username, password);
 			if(utente != null){
 				nextPage = "/indexUtente.jsp";
