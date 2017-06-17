@@ -95,7 +95,7 @@ input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgb
 
 <div class="login">
 	<h1>Login</h1>
-    <form action="amministratoreController" method="post">
+    <form action="controllerAmministratore" method="post">
     	<input type="text" name="username" placeholder="Username" required="required" />
         <input type="text" name="password" placeholder="Password" required="required" />
         <button type="submit" class="button">Login</button>
