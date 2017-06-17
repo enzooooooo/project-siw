@@ -93,11 +93,11 @@ html { width: 100%; height:100%; overflow:scroll; }
 </div>
 
 <div style="padding-left:16px; text-align: center;">
-  <p>nome : ${artista.nome} </p> 
-  <p>cognome : ${artista.cognome}</p>
-  <p>data di nascita : ${artista.dataNascita} </p> 
-  <p>data di morte : ${artista.dataMorte}</p>
-  <p>nazionalita : ${artista.nazionalita} </p>
+  <p>titolo : ${opera.titolo} </p> 
+  <p>anno : ${opera.anno}</p>
+  <p>tecnica : ${opera.tecnica} </p> 
+  <p>dimensioni : ${opera.dimensioni}</p>
+  <p>artista : ${opera.autore.nome} ${opera.autore.cognome} </p>
 </div>
 
 </body>

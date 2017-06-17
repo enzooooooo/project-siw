@@ -92,12 +92,15 @@ html { width: 100%; height:100%; overflow:scroll; }
   <a href="nuovoArtista.jsp">Inserisci nuovo artista </a>
 </div>
 
-<div style="padding-left:16px; text-align: center;">
-  <p>nome : ${artista.nome} </p> 
-  <p>cognome : ${artista.cognome}</p>
-  <p>data di nascita : ${artista.dataNascita} </p> 
-  <p>data di morte : ${artista.dataMorte}</p>
-  <p>nazionalita : ${artista.nazionalita} </p>
+<div style="padding-left:16px; text-align: center; margin-top: 5%; color: white;">
+  <table>
+  	<tr><th>titolo</th><th>anno</th><th>tecnica</th><th>dimensioni</th><th>autore</th></tr>
+  	<c:forEach var = "opera" items = "${opere}" step = "1">
+      <tr><td>${opera.titolo}</td><td>${opera.anno}</td><td>${opera.tecnica}</td><td>${opera.dimensioni}</td><td>${opera.autore.getNome()} ${opera.autore.getCognome()}</td><td><a href = "controllerOpera?id=${opera.id}">
+     	 elimina
+      	</a></td></tr>
+	  </c:forEach>
+  </table>
 </div>
 
 </body>

@@ -6,9 +6,9 @@
         <class>it.uniroma3.model.Prodotto</class>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
-            <property name="javax.persistence.jdbc.user" value="progetto" />
-            <property name="javax.persistence.jdbc.password" value="progettoSiw" />
-            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://progetto-siw.ckrjzcocksy0.us-east-2.rds.amazonaws.com:5432/progetto" />
+            <property name="javax.persistence.jdbc.user" value="postgres" />
+            <property name="javax.persistence.jdbc.password" value="Enzo1995" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost/products" />
             <!-- Hibernate properties -->
             <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.format_sql" value="true" />

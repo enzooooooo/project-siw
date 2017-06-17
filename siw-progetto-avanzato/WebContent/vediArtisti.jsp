@@ -1,3 +1,4 @@
+
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -92,12 +93,15 @@ html { width: 100%; height:100%; overflow:scroll; }
   <a href="nuovoArtista.jsp">Inserisci nuovo artista </a>
 </div>
 
-<div style="padding-left:16px; text-align: center;">
-  <p>nome : ${artista.nome} </p> 
-  <p>cognome : ${artista.cognome}</p>
-  <p>data di nascita : ${artista.dataNascita} </p> 
-  <p>data di morte : ${artista.dataMorte}</p>
-  <p>nazionalita : ${artista.nazionalita} </p>
+<div style="padding-left:16px; text-align: center; margin-top: 5%; color: white;">
+  <table>
+  	<tr><th>nome</th><th>cognome</th><th>data di nascita</th><th>data di morte</th><th>nazionalita</th></tr>
+  	<c:forEach var = "artista" items = "${artisti}" step = "1">
+      <tr><td>${artista.nome}</td><td>${artista.cognome}</td><td>${artista.dataNascita}</td><td>${artista.dataMorte}</td><td>${artista.nazionalita}</td><td><a href = "controllerArtista?id=${artista.id}">
+     	 elimina
+      	</a></td></tr>
+	  </c:forEach>
+  </table>
 </div>
 
 </body>

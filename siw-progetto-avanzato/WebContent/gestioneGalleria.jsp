@@ -85,11 +85,11 @@ html { width: 100%; height:100%; overflow:scroll; }
 <h2>Welcome to Art Gallery</h2>
 </div>
 <div class="topnav">
-  <a class="active" href="/">Home</a>
-  <a href="/login">Vedi opere</a>
-  <a href="/register">Inserisci nuova opera</a>
-  <a href="/artista">Vedi artisti</a>
-  <a href="#contact">Inserisci nuovo artista </a>
+  <a class="" href="gestioneGalleria.jsp">Home</a>
+  <a href="vediOpere.jsp">Vedi opere</a>
+  <a href="controllerArtista?op=1">Inserisci nuova opera</a>
+  <a href="controllerArtista?op=0">Vedi artisti</a>
+  <a href="nuovoArtista.jsp">Inserisci nuovo artista </a>
 </div>
 
 <div style="padding-left:16px; text-align: center;">

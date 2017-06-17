@@ -11,24 +11,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import it.uniroma3.model.Autore;
-import it.uniroma3.service.AutoreService;
-import it.uniroma3.validator.ArtistaValidator;
+import it.uniroma3.model.Quadro;
+import it.uniroma3.service.OperaService;
+import it.uniroma3.validator.OperaValidator;
 
-@WebServlet("/controllerArtista")
-public class ControllerAutore extends HttpServlet {
+@WebServlet("/controllerOpera")
+public class ControllerOpera extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	//commento di prova
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		AutoreService service = new AutoreService();
-		Autore autore = new Autore();
-		ArtistaValidator artistaValidator = new ArtistaValidator();
-		String nextPage = "/MostraDati.jsp";
-		request.setAttribute("artista", autore);
-		if(!artistaValidator.validate(request))
-			nextPage = "/nuovoArtista.jsp";
-		service.inseriscAutore(autore);
+		OperaService service = new OperaService();
+		Quadro opera = new Quadro();
+		OperaValidator operaValidator = new OperaValidator();
+		String nextPage = "/MostraDatiOpera.jsp";
+		request.setAttribute("opera", opera);
+		if(!operaValidator.validate(request))
+			nextPage = "/nuovoOpera.jsp";
+		service.inseriscOpera(opera);
 		ServletContext application = getServletContext();
 		RequestDispatcher rd = application.getRequestDispatcher(nextPage);
 		rd.forward(request, response);
@@ -36,16 +36,14 @@ public class ControllerAutore extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-		AutoreService service = new AutoreService();
-		List<Autore> autori = service.getAutori();
-		request.setAttribute("artisti", autori);
-		String nextPage = "/vediArtisti.jsp";
-		if (request.getParameter("op").compareTo("1") == 0)
-			nextPage = "/nuovaOpera.jsp";
+		OperaService service = new OperaService();
+		List<Quadro> opere = service.getOpere();
+		request.setAttribute("opere", opere);
+		String nextPage = "/vediOpere.jsp";
 		ServletContext application = getServletContext();
 		RequestDispatcher rd = application.getRequestDispatcher(nextPage);
 		rd.forward(request, response);
 		 
 	}
-	
+
 }
