@@ -86,7 +86,7 @@ html { width: 100%; height:100%; overflow:scroll; }
 </div>
 <div class="topnav">
   <a class="" href="gestioneGalleria.jsp">Home</a>
-  <a href="vediOpere.jsp">Vedi opere</a>
+  <a href="controllerOpera">Vedi opere</a>
   <a href="controllerArtista?op=1">Inserisci nuova opera</a>
   <a href="controllerArtista?op=0">Vedi artisti</a>
   <a href="nuovoArtista.jsp">Inserisci nuovo artista </a>

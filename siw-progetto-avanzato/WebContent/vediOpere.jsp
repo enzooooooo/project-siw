@@ -96,7 +96,8 @@ html { width: 100%; height:100%; overflow:scroll; }
   <table>
   	<tr><th>titolo</th><th>anno</th><th>tecnica</th><th>dimensioni</th><th>autore</th></tr>
   	<c:forEach var = "opera" items = "${opere}" step = "1">
-      <tr><td>${opera.titolo}</td><td>${opera.anno}</td><td>${opera.tecnica}</td><td>${opera.dimensioni}</td><td>${opera.autore.getNome()} ${opera.autore.getCognome()}</td><td><a href = "controllerOpera?id=${opera.id}">
+      <tr><td>${opera.titolo}</td><td>${opera.anno}</td><td>${opera.tecnica}</td><td>${opera.dimensioni}</td><td>${opera.autore.getNome()} ${opera.autore.getCognome()}</td><td>
+      <a href = "controllerOpera?id=${opera.id}">
      	 elimina
       	</a></td></tr>
 	  </c:forEach>

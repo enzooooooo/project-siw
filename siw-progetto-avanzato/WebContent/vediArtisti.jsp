@@ -97,9 +97,12 @@ html { width: 100%; height:100%; overflow:scroll; }
   <table>
   	<tr><th>nome</th><th>cognome</th><th>data di nascita</th><th>data di morte</th><th>nazionalita</th></tr>
   	<c:forEach var = "artista" items = "${artisti}" step = "1">
-      <tr><td>${artista.nome}</td><td>${artista.cognome}</td><td>${artista.dataNascita}</td><td>${artista.dataMorte}</td><td>${artista.nazionalita}</td><td><a href = "controllerArtista?id=${artista.id}">
+      <tr><td>${artista.nome}</td><td>${artista.cognome}</td><td>${artista.dataNascita}</td><td>${artista.dataMorte}</td><td>${artista.nazionalita}</td><td>
+      <c:if test="${artista.opere.size() == 0}">
+      <a href = "controllerArtista?id=${artista.id}">
      	 elimina
-      	</a></td></tr>
+      	</a>
+      	</c:if></td></tr>
 	  </c:forEach>
   </table>
 </div>

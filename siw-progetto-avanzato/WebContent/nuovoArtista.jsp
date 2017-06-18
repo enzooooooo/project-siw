@@ -99,11 +99,11 @@ input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgb
 <div class="login">
 	<h1>Inserisci i dati</h1>
     <form action="controllerArtista" method="post">
-    	<p>nome<input type="text" name="nome" placeholder="nome" required="required" /></p>
-        <p>cognome<input type="text" name="cognome" placeholder="cognome" required="required" /></p>
-        <p>nazionalità<input type="text" name="nazionalita" placeholder="nazionalita" required="required" /></p>
-        <p>data di nascita<input type="text" name="dataN" required="required" /></p>
-        <p>data di morte<input type="text" name="dataM" /></p>
+    	<p>nome<input type="text" name="nome" placeholder="nome" required="required" value="${nome}"/></p>
+        <p>cognome<input type="text" name="cognome" placeholder="cognome" required="required" value="${cognome}"/></p>
+        <p>nazionalità<input type="text" name="nazionalita" placeholder="nazionalita" required="required" value="${nazionalita}"/></p>
+        <p>data di nascita ${errDataN}<input type="text" name="dataN" required="required" value="${danaN}"/></p>
+        <p>data di morte ${errDataM}<input type="text" name="dataM" value="${dataM}"/></p>
         <button type="submit" class="button" name="comand" value="Registrati">Registra</button>
     </form>
 </div>

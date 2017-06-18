@@ -23,28 +23,24 @@ public class UtenteValidator {
 		
 		if (nome.isEmpty() || nome == null){
 			tuttoOk = false;
-			request.setAttribute("errnome", "Campo obbligatorio");
 			}
 		else
 			utente.setNome(nome);
 		
 		if (cognome.isEmpty() || cognome == null){
 			tuttoOk = false;
-			request.setAttribute("errdesc", "Campo obbligatorio");
 		}
 		else
 			utente.setCognome(cognome);
 		
 		if (username.isEmpty() || username == null){
 			tuttoOk = false;
-			request.setAttribute("errprezzo", "Campo obbligatorio");
 		}
 		else{
 			utente.setUsername(username);
 		}
 		if (password.isEmpty() || password == null){
 			tuttoOk = false;
-			request.setAttribute("errdataS", "Campo obbligatorio");
 		}
 		else {
 				utente.setPassword(password);

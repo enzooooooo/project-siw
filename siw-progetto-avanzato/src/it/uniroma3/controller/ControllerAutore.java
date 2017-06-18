@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 import it.uniroma3.model.Autore;
 import it.uniroma3.service.AutoreService;
 import it.uniroma3.validator.ArtistaValidator;
@@ -24,11 +25,12 @@ public class ControllerAutore extends HttpServlet {
 		AutoreService service = new AutoreService();
 		Autore autore = new Autore();
 		ArtistaValidator artistaValidator = new ArtistaValidator();
-		String nextPage = "/MostraDati.jsp";
+		String nextPage = "/nuovoArtista.jsp";
 		request.setAttribute("artista", autore);
-		if(!artistaValidator.validate(request))
-			nextPage = "/nuovoArtista.jsp";
-		service.inseriscAutore(autore);
+		if(artistaValidator.validate(request)){
+			service.inseriscAutore(autore);
+			nextPage = "/MostraDati.jsp";
+		}
 		ServletContext application = getServletContext();
 		RequestDispatcher rd = application.getRequestDispatcher(nextPage);
 		rd.forward(request, response);
@@ -37,11 +39,17 @@ public class ControllerAutore extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		AutoreService service = new AutoreService();
+		String nextPage = "/vediArtisti.jsp";
+		if (request.getParameter("id") == null){
+			if (request.getParameter("op").compareTo("1") == 0)
+				nextPage = "/nuovaOpera.jsp";
+			}
+		else{ 
+			Long id =Long.parseLong(request.getParameter("id"));
+			service.eliminaAutore(id);
+		}
 		List<Autore> autori = service.getAutori();
 		request.setAttribute("artisti", autori);
-		String nextPage = "/vediArtisti.jsp";
-		if (request.getParameter("op").compareTo("1") == 0)
-			nextPage = "/nuovaOpera.jsp";
 		ServletContext application = getServletContext();
 		RequestDispatcher rd = application.getRequestDispatcher(nextPage);
 		rd.forward(request, response);

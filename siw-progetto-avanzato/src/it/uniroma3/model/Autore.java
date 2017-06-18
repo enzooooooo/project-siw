@@ -1,6 +1,7 @@
 package it.uniroma3.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -15,6 +16,9 @@ public class Autore {
 	private String nazionalita;
 	private Date dataNascita;
 	private Date dataMorte;
+	
+	@OneToMany(mappedBy = "autore")
+	private List<Quadro> opere;
 	
 	public Autore(){
 		
@@ -72,6 +76,16 @@ public class Autore {
 
 	public void setDataMorte(Date dataMorte) {
 		this.dataMorte = dataMorte;
+	}
+
+
+	public List<Quadro> getOpere() {
+		return opere;
+	}
+
+
+	public void setOpere(List<Quadro> opere) {
+		this.opere = opere;
 	}
 
 	

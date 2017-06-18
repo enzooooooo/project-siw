@@ -31,7 +31,6 @@ public class OperaValidator {
 			opera.setAutore(autore);
 			} 
 			catch (NumberFormatException e){
-				request.setAttribute("errprezzo", "Deve essere un numero !");
 				tuttoOk = false;
 			}		
 		
@@ -42,14 +41,12 @@ public class OperaValidator {
 		
 		if (nome.isEmpty() || nome == null){
 			tuttoOk = false;
-			request.setAttribute("errnome", "Campo obbligatorio");
 			}
 		else
 			opera.setTitolo(nome);
 		
 		if (anno.isEmpty() || anno == null){
 			tuttoOk = false;
-			request.setAttribute("errdesc", "Campo obbligatorio");
 		}
 		else
 			try{
@@ -57,20 +54,18 @@ public class OperaValidator {
 				opera.setAnno(annoF);
 				} 
 				catch (NumberFormatException e){
-					request.setAttribute("errprezzo", "Deve essere un numero !");
+					request.setAttribute("errAnno", " -- Deve essere un numero !");
 					tuttoOk = false;
 				}
 		
 		if (tecnica.isEmpty() || tecnica == null){
 			tuttoOk = false;
-			request.setAttribute("errprezzo", "Campo obbligatorio");
 		}
 		else{
 			opera.setTecnica(tecnica);
 		}
 		if (dimensione.isEmpty() || dimensione == null){
 			tuttoOk = false;
-			request.setAttribute("errdataS", "Campo obbligatorio");
 		}
 		else {
 			try{
@@ -78,7 +73,7 @@ public class OperaValidator {
 			opera.setAnno(dimensioneF);
 			} 
 			catch (NumberFormatException e){
-				request.setAttribute("errprezzo", "Deve essere un numero !");
+				request.setAttribute("errDimensione", "-- Deve essere un numero !");
 				tuttoOk = false;
 			}
 		}

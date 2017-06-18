@@ -97,10 +97,10 @@ input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgb
 <div class="login">
 	<h1>Inserisci i tuoi dati</h1>
     <form action="controllerUtente" method="post">
-    	<p>Username<input type="text" name="username" placeholder="Username" required="required" /></p>
-        <p>Password<input type="text" name="password" placeholder="Password" required="required" /></p>
-        <p>nome<input type="text" name="nome" placeholder="nome" required="required" /></p>
-        <p>cognome<input type="text" name="cognome" placeholder="cognome" required="required" /></p>
+    	<p>Username<input type="text" name="username" placeholder="Username" required="required" value="${username}"/></p>
+        <p>Password<input type="text" name="password" placeholder="Password" required="required" value="${password}"/></p>
+        <p>nome<input type="text" name="nome" placeholder="nome" required="required" value="${nome}"/></p>
+        <p>cognome<input type="text" name="cognome" placeholder="cognome" required="required" value="${cognome}"/></p>
         <button type="submit" class="button" name="comand" value="Registrati">Registrati</button>
     </form>
 </div>

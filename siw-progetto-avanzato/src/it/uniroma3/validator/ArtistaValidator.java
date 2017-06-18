@@ -27,61 +27,56 @@ public class ArtistaValidator {
 		
 		//HttpSession session = request.getSession();
 		request.setAttribute("nome", nome);
-		request.setAttribute("desc",cognome);
+		request.setAttribute("cognome",cognome);
 		request.setAttribute("dataN",dataNascita);
 		request.setAttribute("dataM",dataMorte);
-		request.setAttribute("prezzo",nazionalita);
+		request.setAttribute("nazionalita",nazionalita);
 		
 		if (nome.isEmpty() || nome == null){
 			tuttoOk = false;
-			request.setAttribute("errnome", "Campo obbligatorio");
 			}
 		else
 			autore.setNome(nome);
 		
 		if (cognome.isEmpty() || cognome == null){
 			tuttoOk = false;
-			request.setAttribute("errdesc", "Campo obbligatorio");
 		}
 		else
 			autore.setCognome(cognome);
 		
 		if (nazionalita.isEmpty() || nazionalita == null){
 			tuttoOk = false;
-			request.setAttribute("errprezzo", "Campo obbligatorio");
 		}
 		else{
 			autore.setNazionalita(nazionalita);
 		}
 		if (dataNascita.isEmpty() || dataNascita == null){
 			tuttoOk = false;
-			request.setAttribute("errdataS", "Campo obbligatorio");
 		}
 		else {
 				try{
 					DateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
-					Date dataScadenza = (Date) dateFormat.parse(dataNascita);
-						autore.setDataNascita(dataScadenza);
+					Date date = (Date) dateFormat.parse(dataNascita);
+						autore.setDataNascita(date);
 					
 				}
 				catch (ParseException e){
-					request.setAttribute("errdataS", "Data non valida");
+					request.setAttribute("errDataN", "Data non valida");
 					tuttoOk = false;
 				}
 		}
 		
 		if (dataMorte.isEmpty() || dataMorte == null){
 			tuttoOk = false;
-			request.setAttribute("errdataS", "Campo obbligatorio");
 		}
 		else {
 				try{
 					DateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
-					Date dataScadenza = (Date) dateFormat.parse(dataMorte);
-						autore.setDataMorte(dataScadenza);
+					Date date = (Date) dateFormat.parse(dataMorte);
+						autore.setDataMorte(date);
 				}
 				catch (ParseException e){
-					request.setAttribute("errdataS", "Data non valida");
+					request.setAttribute("errDataM", "Data non valida");
 					tuttoOk = false;
 				}
 		}
