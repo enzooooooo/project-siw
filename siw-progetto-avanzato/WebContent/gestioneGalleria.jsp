@@ -90,6 +90,7 @@ html { width: 100%; height:100%; overflow:scroll; }
   <a href="controllerArtista?op=1">Inserisci nuova opera</a>
   <a href="controllerArtista?op=0">Vedi artisti</a>
   <a href="nuovoArtista.jsp">Inserisci nuovo artista </a>
+  <a href="index.jsp">Logout</a>
 </div>
 
 <div style="padding-left:16px; text-align: center;">

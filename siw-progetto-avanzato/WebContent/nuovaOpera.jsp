@@ -100,7 +100,7 @@ input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgb
 	<h1>Inserisci i dati</h1>
     <form action="controllerOpera" method="post">
     	<p>titolo <input type="text" name="titolo" placeholder="nome" required="required" value="${titolo}"/></p>
-        <p>anno ${errAnno}<input type="text" name="anno" placeholder="cognome" required="required" value="${anno}"/></p>
+        <p>anno ${errAnno}<input type="text" name="anno" placeholder="anno" required="required" value="${anno}"/></p>
         <p>tecnica<input type="text" name="tecnica" placeholder="tecnica" required="required" value="${tecnica}"/></p>
         <p>dimensione ${errDimensione}<input type="text" name="dimensione" required="required" value="${dimensione}"/></p>
         <p>autore<select name="artista">

@@ -85,21 +85,39 @@ html { width: 100%; height:100%; overflow:scroll; }
 <h2>Welcome to Art Gallery</h2>
 </div>
 <div class="topnav">
+<c:choose>
+   	<c:when test="${isUtente}">
+   			<div class="topnav">
+  <a href="indexUtente.jsp">Home</a>
+  <a href="controllerArtista?op=2">Autori</a>
+  <a class="active" href="controllerOpera?isUtente=true">opere</a>
+  <a href="index.jsp">Logout</a>
+</div>
+   	</c:when>
+   	<c:otherwise>
+   		<div class="topnav">
   <a class="active" href="gestioneGalleria.jsp">Home</a>
-  <a href="vediOpere.jsp">Vedi opere</a>
+  <a class="active" href="controllerOpera">Vedi opere</a>
   <a href="controllerArtista?op=1">Inserisci nuova opera</a>
   <a href="controllerArtista?op=0">Vedi artisti</a>
   <a href="nuovoArtista.jsp">Inserisci nuovo artista </a>
+  <a href="index.jsp">Logout</a>
+</div>
+   	</c:otherwise>
+   </c:choose>
 </div>
 
 <div style="padding-left:16px; text-align: center; margin-top: 5%; color: white;">
   <table>
   	<tr><th>titolo</th><th>anno</th><th>tecnica</th><th>dimensioni</th><th>autore</th></tr>
   	<c:forEach var = "opera" items = "${opere}" step = "1">
-      <tr><td>${opera.titolo}</td><td>${opera.anno}</td><td>${opera.tecnica}</td><td>${opera.dimensioni}</td><td>${opera.autore.getNome()} ${opera.autore.getCognome()}</td><td>
+      <tr><td>${opera.titolo}</td><td>${opera.anno}</td><td>${opera.tecnica}</td>
+      <td>${opera.dimensioni}</td><td>${opera.autore.getNome()} ${opera.autore.getCognome()}</td><td>
+      <c:if test="${!isUtente}">
       <a href = "controllerOpera?id=${opera.id}">
      	 elimina
-      	</a></td></tr>
+      	</a>
+      	</c:if></td></tr>
 	  </c:forEach>
   </table>
 </div>

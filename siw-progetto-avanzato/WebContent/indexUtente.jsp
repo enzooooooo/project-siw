@@ -80,18 +80,16 @@ html { width: 100%; height:100%; overflow:scroll; }
 
 </style>
 <body>
-	<div id = "login">
-		Galleria di Enzo
-		<h1>username : <input type = "text" name = "username"/>
-		password : <input type = "password" name = "pass" /></h1>
-	</div>
+	<div class="title">
+<h2>Welcome to Art Gallery</h2>
+</div>
+
 	
 	<div class="topnav">
-  <a class="active" href="/">Home</a>
-  <a href="/register">Registrati</a>
-  <a href="/artista">Artista</a>
-  <a href="#contact">Rooms </a>
-  <a href = "amministratori.jsp">Amministratori</a>
+  <a class="active" href="indexUtente.jsp">Home</a>
+  <a href="controllerArtista?op=2">Autori</a>
+  <a href="controllerOpera?isUtente=true">opere</a>
+  <a href="index.jsp">Logout</a>
 </div>
 
 

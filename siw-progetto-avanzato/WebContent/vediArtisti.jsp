@@ -85,24 +85,45 @@ html { width: 100%; height:100%; overflow:scroll; }
 <div class="title">
 <h2>Welcome to Art Gallery</h2>
 </div>
-<div class="topnav">
-  <a class="active" href="gestioneGalleria.jsp">Home</a>
-  <a href="vediOpere.jsp">Vedi opere</a>
-  <a href="controllerArtista?op=1">Inserisci nuova opera</a>
-  <a href="controllerArtista?op=0">Vedi artisti</a>
-  <a href="nuovoArtista.jsp">Inserisci nuovo artista </a>
+<c:choose>
+   	<c:when test="${isUtente}">
+   			<div class="topnav">
+  <a href="indexUtente.jsp">Home</a>
+  <a class="active" href="controllerArtista?op=2">Autori</a>
+  <a href="controllerOpera?isUtente=true">opere</a>
+  <a href="index.jsp">Logout</a>
 </div>
+   	</c:when>
+   	<c:otherwise>
+   		<div class="topnav">
+  <a class="active" href="gestioneGalleria.jsp">Home</a>
+  <a href="controllerOpera">Vedi opere</a>
+  <a href="controllerArtista?op=1">Inserisci nuova opera</a>
+  <a class="active" href="controllerArtista?op=0">Vedi artisti</a>
+  <a href="nuovoArtista.jsp">Inserisci nuovo artista </a>
+  <a href="index.jsp">Logout</a>
+</div>
+   	</c:otherwise>
+   </c:choose>
+
 
 <div style="padding-left:16px; text-align: center; margin-top: 5%; color: white;">
   <table>
   	<tr><th>nome</th><th>cognome</th><th>data di nascita</th><th>data di morte</th><th>nazionalita</th></tr>
   	<c:forEach var = "artista" items = "${artisti}" step = "1">
       <tr><td>${artista.nome}</td><td>${artista.cognome}</td><td>${artista.dataNascita}</td><td>${artista.dataMorte}</td><td>${artista.nazionalita}</td><td>
-      <c:if test="${artista.opere.size() == 0}">
+      <c:choose>
+      <c:when test="${artista.opere.size() > 0 && isUtente}">
+      <a href = "controllerOpera?idArtista=${artista.id}&isUtente=true">
+     	 opere
+      	</a>
+      	</c:when>
+      	<c:when test="${artista.opere.size() == 0 && !isUtente}">
       <a href = "controllerArtista?id=${artista.id}">
      	 elimina
       	</a>
-      	</c:if></td></tr>
+      	</c:when>
+      	</c:choose></td></tr>
 	  </c:forEach>
   </table>
 </div>

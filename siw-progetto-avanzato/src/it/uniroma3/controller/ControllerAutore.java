@@ -43,6 +43,8 @@ public class ControllerAutore extends HttpServlet {
 		if (request.getParameter("id") == null){
 			if (request.getParameter("op").compareTo("1") == 0)
 				nextPage = "/nuovaOpera.jsp";
+			else if (request.getParameter("op").compareTo("2") == 0)
+				request.setAttribute("isUtente", true);
 			}
 		else{ 
 			Long id =Long.parseLong(request.getParameter("id"));

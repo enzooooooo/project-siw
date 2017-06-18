@@ -101,7 +101,7 @@ input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgb
         <p>Password<input type="text" name="password" placeholder="Password" required="required" value="${password}"/></p>
         <p>nome<input type="text" name="nome" placeholder="nome" required="required" value="${nome}"/></p>
         <p>cognome<input type="text" name="cognome" placeholder="cognome" required="required" value="${cognome}"/></p>
-        <button type="submit" class="button" name="comand" value="Registrati">Registrati</button>
+        <button type="submit" class="button" value="Registrati">Registrati</button>
     </form>
 </div>
 </body>

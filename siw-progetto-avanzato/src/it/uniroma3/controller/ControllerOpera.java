@@ -43,8 +43,17 @@ public class ControllerOpera extends HttpServlet {
 			Long id = Long.parseLong(request.getParameter("id"));
 			service.eliminaQuadro(id);
 		}
-		List<Quadro> opere = service.getOpere();
-		request.setAttribute("opere", opere);
+		if(request.getParameter("idArtista") == null)
+		{
+			List<Quadro> opere = service.getOpere();
+			request.setAttribute("opere", opere);
+		}
+		else{
+			List<Quadro> opere = service.getOpereFromArtista(Long.parseLong(request.getParameter("idArtista")));
+			request.setAttribute("opere", opere);
+		}
+		if(request.getParameter("isUtente") != null)
+			request.setAttribute("isUtente", true);
 		ServletContext application = getServletContext();
 		RequestDispatcher rd = application.getRequestDispatcher(nextPage);
 		rd.forward(request, response);
