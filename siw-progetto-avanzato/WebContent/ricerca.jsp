@@ -1,10 +1,9 @@
-
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Artisti</title>
+<title>Insert title here</title>
 </head>
 <style>
 
@@ -75,59 +74,81 @@ body {
 }
 
 html { width: 100%; height:100%; overflow:scroll; }
+	
+	.button{
+	border: solid medium forestgreen;
+	background-color: #32CD32;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#e9ede8), to(#32CD32),color-stop(0.4, #008800));
+	color: white;
+	
+}
+
+	input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); }
+	
+table{
+	color:white;
+}
 
 
 </style>
-
-
-
 <body>
-<div class="title">
-<h2>Gestione galleria</h2>
+	<div class="title">
+<h2>ricerca un opera</h2>
 </div>
-<c:choose>
-   	<c:when test="${isUtente}">
-   			<div class="topnav">
+
+	
+	<div class="topnav">
   <a href="indexUtente.jsp">Home</a>
-  <a class="active" href="controllerArtista?op=2">Autori</a>
+  <a href="controllerArtista?op=2">Autori</a>
   <a href="controllerOpera?isUtente=true">Opere</a>
-  <a href="ricerca.jsp">Ricerca</a>
+  <a class="active" href="ricerca.jsp">Ricerca</a>
   <a href="index.jsp">Logout</a>
 </div>
-   	</c:when>
-   	<c:otherwise>
-   		<div class="topnav">
-  <a href="gestioneGalleria.jsp">Home</a>
-  <a href="controllerOpera">Vedi opere</a>
-  <a href="controllerArtista?op=1">Inserisci nuova opera</a>
-  <a class="active" href="controllerArtista?op=0">Vedi artisti</a>
-  <a href="nuovoArtista.jsp">Inserisci nuovo artista </a>
-  <a href="index.jsp">Logout</a>
-</div>
-   	</c:otherwise>
-   </c:choose>
 
 
-<div style="padding-left:16px; text-align: center; margin-top: 5%; color: white;">
-  <table>
-  	<tr><th>nome</th><th>cognome</th><th>data di nascita</th><th>data di morte</th><th>nazionalita</th></tr>
-  	<c:forEach var = "artista" items = "${artisti}" step = "1">
-      <tr><td>${artista.nome}</td><td>${artista.cognome}</td><td>${artista.dataNascita}</td><td>${artista.dataMorte}</td><td>${artista.nazionalita}</td><td>
-      <c:choose>
-      <c:when test="${artista.opere.size() > 0 && isUtente}">
-      <a href = "controllerOpera?idArtista=${artista.id}&isUtente=true">
-     	 opere
-      	</a>
-      	</c:when>
-      	<c:when test="${artista.opere.size() == 0 && !isUtente}">
-      <a href = "controllerArtista?id=${artista.id}">
-     	 elimina
-      	</a>
-      	</c:when>
-      	</c:choose></td></tr>
+	<div id = "section">
+		<h2>Ricerca per nome</h2>
+		<form action = "controllerOpera" method="post">
+			<p>nome : <input type="text" name="nomeRicerca"></p>
+			<input type="submit" class="button" value="cerca">
+		</form>
+		
+	<c:if test = "${operePerNome.size() > 0}">
+		<table>
+  	<tr><th>titolo</th><th>anno</th><th>tecnica</th><th>dimensioni</th><th>autore</th></tr>
+  	<c:forEach var = "opera" items = "${operePerNome}" step = "1">
+      <tr><td>${opera.titolo}</td><td>${opera.anno}</td><td>${opera.tecnica}</td>
+      <td>${opera.dimensioni}</td><td>${opera.autore.getNome()} ${opera.autore.getCognome()}</td></tr>
 	  </c:forEach>
   </table>
-</div>
+		</c:if>
+		<c:if test="${operePerNome.size() == 0}">
+			<p>Nessun opera trovata</p>
+		</c:if>
+	</div>
+	
+	<div id = "section">
+		<h2>Ricerca per anno</h2>
+		<form action = "controllerOpera" method="post">
+			<p>anno : 
+			<input type="text" name="annoRicerca"> ${errAnno}</p>
+			<input type="submit" class="button" value="cerca">
+		</form>
+	<c:if test = "${operePerAnno.size() > 0}">
+		<table>
+  	<tr><th>titolo</th><th>anno</th><th>tecnica</th><th>dimensioni</th><th>autore</th></tr>
+  	<c:forEach var = "opera" items = "${operePerAnno}" step = "1">
+      <tr><td>${opera.titolo}</td><td>${opera.anno}</td><td>${opera.tecnica}</td>
+      <td>${opera.dimensioni}</td><td>${opera.autore.getNome()} ${opera.autore.getCognome()}</td></tr>
+	  </c:forEach>
+  </table>
+		</c:if>
+		<c:if test="${operePerAnno.size() == 0}">
+			<p>Nessun opera trovata</p>
+		</c:if>
+	</div>
+
+	
 
 </body>
 </html>

@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Area amministraotir</title>
+<title>Login amministratore</title>
 <link rel="stylesheet" href="style-amministratori.css" />
 </head>
 <style type="text/css">

@@ -47,6 +47,20 @@ public class OperaService {
 		tx.commit();
 		return quadri;
 	}
+	public List<Quadro> getOpereFromNome(String nome){
+		tx.begin();   
+		TypedQuery<Quadro> query = em.createQuery("SELECT o FROM Quadro o WHERE o.titolo='"+nome+"'", Quadro.class);
+		List<Quadro> quadri = query.getResultList();
+		tx.commit();
+		return quadri;
+	}
+	public List<Quadro> getOpereFromAnno(int anno){
+		tx.begin();   
+		TypedQuery<Quadro> query = em.createQuery("SELECT o FROM Quadro o WHERE o.anno="+anno, Quadro.class);
+		List<Quadro> quadri = query.getResultList();
+		tx.commit();
+		return quadri;
+	}
 
 	public Quadro getQuadroDaId(Long id) {
 		tx.begin();

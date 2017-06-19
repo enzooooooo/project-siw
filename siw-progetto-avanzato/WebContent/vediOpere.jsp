@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Opere</title>
 </head>
 <style>
 
@@ -82,7 +82,7 @@ html { width: 100%; height:100%; overflow:scroll; }
 
 <body>
 <div class="title">
-<h2>Welcome to Art Gallery</h2>
+<h2>Gestione galleria</h2>
 </div>
 <div class="topnav">
 <c:choose>
@@ -90,13 +90,14 @@ html { width: 100%; height:100%; overflow:scroll; }
    			<div class="topnav">
   <a href="indexUtente.jsp">Home</a>
   <a href="controllerArtista?op=2">Autori</a>
-  <a class="active" href="controllerOpera?isUtente=true">opere</a>
+  <a class="active" href="controllerOpera?isUtente=true">Opere</a>
+  <a href="ricerca.jsp">Ricerca</a>
   <a href="index.jsp">Logout</a>
 </div>
    	</c:when>
    	<c:otherwise>
    		<div class="topnav">
-  <a class="active" href="gestioneGalleria.jsp">Home</a>
+  <a href="gestioneGalleria.jsp">Home</a>
   <a class="active" href="controllerOpera">Vedi opere</a>
   <a href="controllerArtista?op=1">Inserisci nuova opera</a>
   <a href="controllerArtista?op=0">Vedi artisti</a>

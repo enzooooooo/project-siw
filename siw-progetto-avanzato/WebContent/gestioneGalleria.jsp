@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Home</title>
 </head>
 <style>
 
@@ -82,7 +82,7 @@ html { width: 100%; height:100%; overflow:scroll; }
 
 <body>
 <div class="title">
-<h2>Welcome to Art Gallery</h2>
+<h2>Gestione galleria</h2>
 </div>
 <div class="topnav">
   <a class="" href="gestioneGalleria.jsp">Home</a>

@@ -88,7 +88,8 @@ html { width: 100%; height:100%; overflow:scroll; }
 	<div class="topnav">
   <a class="active" href="indexUtente.jsp">Home</a>
   <a href="controllerArtista?op=2">Autori</a>
-  <a href="controllerOpera?isUtente=true">opere</a>
+  <a href="controllerOpera?isUtente=true">Opere</a>
+  <a href="ricerca.jsp">Ricerca</a>
   <a href="index.jsp">Logout</a>
 </div>
 

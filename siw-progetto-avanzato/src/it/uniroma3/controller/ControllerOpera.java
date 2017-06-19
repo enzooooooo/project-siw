@@ -22,13 +22,32 @@ public class ControllerOpera extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		OperaService service = new OperaService();
+		String nextPage = "/nuovaOpera.jsp";
+		if(request.getParameter("nomeRicerca") != null){
+			nextPage = "/ricerca.jsp";
+			List<Quadro> opere = service.getOpereFromNome(request.getParameter("nomeRicerca"));
+			request.setAttribute("operePerNome", opere);
+		}
+		else if(request.getParameter("annoRicerca") != null){
+			nextPage = "/ricerca.jsp";
+			try{
+				int annoF = Integer.parseInt(request.getParameter("annoRicerca"));
+				List<Quadro> opere = service.getOpereFromAnno(annoF);
+				request.setAttribute("operePerAnno", opere);
+				} 
+				catch (NumberFormatException e){
+					request.setAttribute("errAnno", " -- Deve essere un numero !");
+				}
+		}
+		else{
+		
 		Quadro opera = new Quadro();
 		OperaValidator operaValidator = new OperaValidator();
-		String nextPage = "/nuovoOpera.jsp";
 		request.setAttribute("opera", opera);
 		if(operaValidator.validate(request)){
 			service.inseriscOpera(opera);
 			nextPage = "/MostraDatiOpera.jsp";
+		}
 		}
 		ServletContext application = getServletContext();
 		RequestDispatcher rd = application.getRequestDispatcher(nextPage);
